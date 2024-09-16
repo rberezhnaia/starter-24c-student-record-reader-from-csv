@@ -14,15 +14,18 @@ Student ReadStudentRecFromStream(std::istream& is) {
   std:: string last = "";
   unsigned int uin = 0;
   double gpa = 0.0;
-  char throw_away = '\0';
-  while(is.good()) {
-    is >> first >> last >> throw_away >> uin >> throw_away >> gpa;
+  char comma1 = '\0';
+  char comma2 = '\0';
+  //while(is.good()) {
+  if (is >> first >> last >> comma1 >> uin >> comma2 >> gpa) {
     if (is.fail()) {
       //break;
       return Student{};
     }
-    //std::string full = first + " " + last;
-    return Student(first + " " + last, uin, gpa);
+    if (comma1 == ',' && comma2 == ',') {
+      std::string full = first + " " + last;
+      return Student(full, uin, gpa);
+    }
   } 
   return Student{};
 }
