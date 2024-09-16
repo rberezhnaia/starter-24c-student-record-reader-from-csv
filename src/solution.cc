@@ -2,11 +2,13 @@
 #include "student.hpp"
 #include <fstream>
 #include <string>
+/*
 struct Student {
   std::string full_name;
   unsigned int uin = 0;
   double gpa = 0.0;
 };
+*/
 Student ReadStudentRecFromStream(std::istream& is) {
   while(is.good()) {
     std::string first = "";
