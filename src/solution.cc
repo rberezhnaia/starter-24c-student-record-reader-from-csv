@@ -21,8 +21,8 @@ Student ReadStudentRecFromStream(std::istream& is) {
       //break;
       return Student{};
     }
-    std::string full = first + " " + last;
-    return Student(full, uin, gpa);
+    //std::string full = first + " " + last;
+    return Student(first + " " + last, uin, gpa);
   } 
   return Student{};
 }
