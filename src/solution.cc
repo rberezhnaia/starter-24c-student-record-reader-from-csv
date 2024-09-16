@@ -30,8 +30,8 @@ Student ReadStudentRecFromStream(std::istream& is) {
       return Student{};
     }
     if (comma1 == ',' && comma2 == ',') {
-      std::string full = first + " " + last;
-      return Student(full, uin, gpa);
+      first += " " + last;
+      return Student(first, uin, gpa);
     }
    
   }
