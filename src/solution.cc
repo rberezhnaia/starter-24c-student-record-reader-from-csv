@@ -10,18 +10,19 @@ struct Student {
 };
 */
 Student ReadStudentRecFromStream(std::istream& is) {
+  std::string first = "";
+  std:: string last = "";
+  unsigned int uin = 0;
+  double gpa = 0.0;
+  char throw_away = '\0';
   while(is.good()) {
-    std::string first = "";
-    std:: string last = "";
-    unsigned int uin = 0;
-    double gpa = 0.0;
-    char throw_away = '\0';
     is >> first >> last >> throw_away >> uin >> throw_away >> gpa;
-    if (is.fail())
-      break;
+    if (is.fail()) {
+      //break;
       return Student{};
     }
     std::string full = first + " " + last;
     return Student(full, uin, gpa);
-  
+  } 
+  return Student{};
 }
